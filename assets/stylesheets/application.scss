@@ -1,0 +1,36 @@
+@import "reset";
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #0097FF;
+}
+
+.main-nav {
+  width: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 100px 20px;
+
+  font-size: 14px;
+  a {
+    display: block;
+    color: #616161;
+    padding: 5px;
+  }
+  a.home-link {
+    color: black;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+}
+
+.main-stream {
+  padding: 100px 20px 100px 220px;
+}

@@ -1,0 +1,8 @@
+extend layout
+block main
+
+  h2 index, bitch! 
+
+  each blog in blogs
+    a(href=blog.url)= blog.name
+      br

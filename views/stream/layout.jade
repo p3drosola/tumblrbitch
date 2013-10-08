@@ -1,0 +1,18 @@
+!!!5
+html
+  head
+    title #{title} - tumblrbitch
+    link(rel='stylesheet', href='/stylesheets/application.css')
+    link(href='http://fonts.googleapis.com/css?family=Source+Sans+Pro', rel='stylesheet', type='text/css')
+
+  body
+    nav.main-nav
+      a.home-link(href='/')
+        h1 tumblrbitch
+
+      each category in categories  
+        a(href='/stream/' + category.id)= category.name
+        
+    .main-stream
+      block main
+
