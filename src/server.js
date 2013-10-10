@@ -46,14 +46,16 @@ module.exports.createServer = function () {
 
   // configure server
   server = express();
+
   server.use(express.static(path.resolve(__dirname, '../assets')));
   server.use(express.logger());
-  server.engine('jade', require('jade').__express);
-  server.set('views', __dirname + '/views');
 
+  server.engine('jade', require('jade').__express);
+
+  server.set('view engine', 'jade')
+  server.set('views', __dirname + '/views');
   server.set('db', db);
   server.set('tumblr', client);
-
 
   require('./routes.js')(server);
 

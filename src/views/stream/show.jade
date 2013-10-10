@@ -1,0 +1,6 @@
+extend layout
+block main
+    h2= category.name
+
+    code
+      pre= JSON.stringify(posts, null, 2)

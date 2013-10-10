@@ -1,4 +1,6 @@
-var _ = require('underscore');
+var _ = require('underscore'),
+    async = require('async');
+
 
 module.exports = function (server) {
 
@@ -7,7 +9,7 @@ module.exports = function (server) {
 
   return {
     index: function (req, res) {
-      res.render('stream/index.jade', {
+      res.render('stream/index', {
         title: 'Stream',
         categories: db.categories,
         blogs: db.blogs
@@ -15,21 +17,25 @@ module.exports = function (server) {
     },
     show: function (req, res) {
       var category = db.categories[req.params.id],
-          category_blogs = _.findWhere(db.blogs, {category_id: category.id});
+          blogs = _.where(db.blogs, {category_id: category.id});
 
-      _.each(category_blogs, function () {
-        // TODO: fetch blog posts
+      async.map(_.pluck(blogs, 'name'), tumblr.posts.bind(tumblr), function (err, data) {
+        if (err) return console.error(err);
+
+        var posts = _.flatten(_.pluck(data, 'posts'));
+        console.log('got', posts.length, 'posts');
+
+        if (category) {
+          res.render('stream/show', {
+            title: 'Stream',
+            categories: db.categories,
+            category: category,
+            posts: posts
+          });
+        } else {
+          res.end('404');
+        }
       });
-
-      if (category) {
-        res.render('stream/item.jade', {
-          title: 'Stream',
-          categories: db.categories,
-          category: category
-        });
-      } else {
-        res.end('404');
-      }
     }
   };
 };
