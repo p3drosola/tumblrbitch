@@ -1,0 +1,25 @@
+{
+  "name": "tumblrbitch",
+  "version": "0.0.0",
+  "description": "create `config.yml` and set your outh credentials",
+  "main": "tumblrbitch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/p3drosola/tumblrbitch.git"
+  },
+  "author": "",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "d58cf7ad4d656a21d2b3df2c1683e7ad8e8122ab",
+  "dependencies": {
+    "underscore": "~1.5.2",
+    "tumblr.js": "0.0.4",
+    "js-yaml": "~2.1.2",
+    "express": "~3.4.0",
+    "jade": "~0.35.0",
+    "mongoose": "~3.6.20"
+  }
+}
