@@ -1,3 +1,7 @@
+### Requirements
+- mongodb server
+
+
 ### Getting started
 
 create `config.yml` and set your outh credentials
