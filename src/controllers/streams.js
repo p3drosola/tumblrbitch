@@ -1,41 +1,52 @@
-var _ = require('underscore'),
-    async = require('async');
+var _ = require('underscore');
 
+function loadStream(req, res, callback) {
+    // req.category = category;
+    callback();
+}
 
 module.exports = function (server) {
 
-  var db = server.get('db'),
-      tumblr = server.get('tumblr');
+  var _ = require('underscore'),
+    async = require('async'),
+    User = require('../models/user.js');
 
   return {
     index: function (req, res) {
       res.render('stream/index', {
         title: 'Stream',
-        categories: db.categories,
-        blogs: db.blogs
+        categories: req.user.categories
       });
     },
     show: function (req, res) {
-      var category = db.categories[req.params.id],
-          blogs = _.where(db.blogs, {category_id: category.id});
 
-      async.map(_.pluck(blogs, 'name'), tumblr.posts.bind(tumblr), function (err, data) {
-        if (err) return console.error(err);
+      loadStream(req, res, function () {
 
-        var posts = _.flatten(_.pluck(data, 'posts'));
-        console.log('got', posts.length, 'posts');
+        console.log(req.user);
 
-        if (category) {
-          res.render('stream/show', {
-            title: 'Stream',
-            categories: db.categories,
-            category: category,
-            posts: posts
-          });
-        } else {
-          res.end('404');
-        }
+        // res.render('stream/show', {
+        //   title: 'Stream',
+        //   categories: req.categories,
+        //   category: req.categories,
+        //   posts: posts
+        // });
       });
+
+      // var category = db.categories[req.params.id],
+      //     blogs = _.where(db.blogs, {category_id: category.id});
+
+      // async.map(_.pluck(blogs, 'name'), tumblr.posts.bind(tumblr), function (err, data) {
+      //   if (err) return console.error(err);
+
+      //   var posts = _.flatten(_.pluck(data, 'posts'));
+      //   console.log('got', posts.length, 'posts');
+
+      //   if (category) {
+
+      //   } else {
+      //     res.end('404');
+      //   }
+      // });
     }
   };
 };

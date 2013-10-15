@@ -11,4 +11,6 @@ create `config.yml` and set your outh credentials
     token: 8723h834h87fh3487fh3874fh783f4iu4h38uf
     token_secret: we87fhw87edh873h48h34f34f
 
+start a mongodb server: `mongod`
+
 run `node application.js`

@@ -1,6 +1,9 @@
 var mongoose = require('mongoose'),
+    async = require('async'),
     User = require('../src/models/user.js'),
     Category = require('../src/models/category.js'),
+    categories,
+    users,
     db;
 
 mongoose.connect('mongodb://localhost/tumblrbitch');
@@ -14,18 +17,21 @@ db.on('error', function (error) {
 db.collections.users.drop();
 db.collections.categories.drop();
 
-new Category({
-  name: 'Mens Fashion',
-  blogs: ['digital-wardrobe', 'yourstyle-men', 'his-vogue-style', 'styleguy']
-}).save();
+categories = [
+  {
+    name: 'Mens Fashion',
+    blogs: ['digital-wardrobe', 'yourstyle-men', 'his-vogue-style', 'styleguy']
+  },
+  {
+    name: 'design',
+    blogs: ['wedieforbeauty', 'sangredeltoro']
+  }
+];
 
-new Category({
-  name: 'design',
-  blogs: ['wedieforbeauty', 'sangredeltoro']
-}).save();
-
-
-Category.find({}, function (err, categories) {
+async.map(categories, function (data, callback) {
+  new Category().save(callback);
+}, function (err, categories) {
+  console.log('categories created...');
   new User({
     id: 1,
     name: 'Bob',
@@ -35,4 +41,3 @@ Category.find({}, function (err, categories) {
     db.close();
   });
 });
-

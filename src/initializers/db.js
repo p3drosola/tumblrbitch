@@ -18,8 +18,8 @@ module.exports = function (server) {
     console.log('db connection established');
   });
 
-  server.set('db', db);
-  return true;
+  if (server) server.set('db', db);
+  return db;
 };
 
 
