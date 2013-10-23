@@ -1,12 +1,9 @@
 var _ = require('underscore'),
 async = require('async');
 
-function loadStream(req, res, callback) {
-  // req.category = category;
-  callback();
-}
-
 module.exports = function (server) {
+
+  var loadStream = require('../middleware/load-stream.js')(server);
 
   return {
     index: function (req, res) {
@@ -16,34 +13,16 @@ module.exports = function (server) {
       });
     },
     show: function (req, res) {
-
       loadStream(req, res, function () {
 
-        console.log(req.user);
+        console.log('got the stream', req.stream);
 
-        // res.render('stream/show', {
-        //   title: 'Stream',
-        //   categories: req.categories,
-        //   category: req.categories,
-        //   posts: posts
-        // });
+        res.render('stream/show', {
+          title: 'Stream',
+          user: req.user,
+          stream: req.stream
+        });
       });
-
-      // var category = db.categories[req.params.id],
-      //     blogs = _.where(db.blogs, {category_id: category.id});
-
-      // async.map(_.pluck(blogs, 'name'), tumblr.posts.bind(tumblr), function (err, data) {
-      //   if (err) return console.error(err);
-
-      //   var posts = _.flatten(_.pluck(data, 'posts'));
-      //   console.log('got', posts.length, 'posts');
-
-      //   if (category) {
-
-      //   } else {
-      //     res.end('404');
-      //   }
-      // });
     }
   };
 };

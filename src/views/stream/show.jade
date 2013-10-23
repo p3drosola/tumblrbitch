@@ -1,6 +1,6 @@
 extend layout
 block main
-    h2= category.name
+    h2= stream.name
 
     code
-      pre= JSON.stringify(posts, null, 2)
+      pre= JSON.stringify(stream.posts, null, 2)
