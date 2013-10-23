@@ -44,4 +44,4 @@ seed = {
 
 
 _.bindAll(seed, 'onConnection', 'clear', 'onClear', 'insertUser', 'onInsertUser');
-require('../src/initializers/db.js')(seed.onConnection);
+require('../src/initializers/db.js')(null, seed.onConnection);

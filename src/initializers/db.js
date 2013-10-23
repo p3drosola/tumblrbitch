@@ -10,15 +10,18 @@ _ = require('underscore');
  * Creates a mongodb connection.
  * @param  {Express|Function} callback
  */
-module.exports = function (callback) {
+module.exports = function (server, callback) {
   function onConnection(err, db) {
     if (err) throw err;
     console.log('connected to db!');
 
     if (_.isFunction(callback)) {
+      console.log('calling back');
       callback(db);
-    } else if (_.isObject(callback)) {
-      callback.set('db', db);
+    }
+    if (server) {
+      console.log('setting...');
+      server.set('db', db);
     }
   }
 
