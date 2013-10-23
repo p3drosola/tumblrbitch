@@ -1,43 +1,47 @@
-var mongoose = require('mongoose'),
-    async = require('async'),
-    User = require('../src/models/user.js'),
-    Category = require('../src/models/category.js'),
-    categories,
-    users,
-    db;
+var seed,
+_ = require('underscore');
 
-mongoose.connect('mongodb://localhost/tumblrbitch');
-db = mongoose.connection;
-
-db.on('error', function (error) {
-  console.error('db connection error:', error);
-  process.exit();
-});
-
-db.collections.users.drop();
-db.collections.categories.drop();
-
-categories = [
-  {
-    name: 'Mens Fashion',
-    blogs: ['digital-wardrobe', 'yourstyle-men', 'his-vogue-style', 'styleguy']
+seed = {
+  onConnection: function (db) {
+    this.db = db;
+    this.clear();
   },
-  {
-    name: 'design',
-    blogs: ['wedieforbeauty', 'sangredeltoro']
-  }
-];
+  clear: function () {
+    this.db.collection('users').remove({}, this.onClear);
+  },
+  onClear: function (err) {
+    if (err) throw err;
+    this.insertUser();
+  },
+  insertUser: function () {
+    this.db.collection('users').insert({
+      tumblr_id: 1,
+      name: 'Henry Miller',
+      streams: [
+        {
+          name: 'Mens Fashion',
+          blogs: ['yourstyle-men', 'his-vogue-style', 'styleguy', 'fuckyeahfashionguys']
+        },
+        {
+          name: 'design',
+          blogs: ['wedieforbeauty', 'sangredeltoro']
+        }
+      ]
+    }, this.onInsertUser);
+  },
+  onInsertUser: function (err, user) {
+    if (err) throw err;
 
-async.map(categories, function (data, callback) {
-  new Category().save(callback);
-}, function (err, categories) {
-  console.log('categories created...');
-  new User({
-    id: 1,
-    name: 'Bob',
-    categories: categories
-  }).save(function (err) {
-    console.log('done!');
-    db.close();
-  });
-});
+    console.log(JSON.stringify(user, null, 2));
+
+    console.log('database seeded successfully.');
+
+    this.db.close();
+  }
+
+};
+
+
+
+_.bindAll(seed, 'onConnection', 'clear', 'onClear', 'insertUser', 'onInsertUser');
+require('../src/initializers/db.js')(seed.onConnection);
