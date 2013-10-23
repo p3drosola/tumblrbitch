@@ -16,14 +16,18 @@ seed = {
   insertUser: function () {
     this.db.collection('users').insert({
       tumblr_id: 1,
+      tumblr_token: 'pu3NDDAaLJtR1EBGG08wkduU2MQDpxiX0PBYm3zrO4VSX51yCw',
+      tumblr_token_secret: 'G17ejZX2wZmNuiGj4rKJHqYo8nQkfSb369paXywE9pD4mHfWvr',
       name: 'Henry Miller',
       streams: [
         {
+          slug: 'mens-fashion',
           name: 'Mens Fashion',
           blogs: ['yourstyle-men', 'his-vogue-style', 'styleguy', 'fuckyeahfashionguys']
         },
         {
-          name: 'design',
+          slug: 'design',
+          name: 'Design',
           blogs: ['wedieforbeauty', 'sangredeltoro']
         }
       ]
@@ -31,17 +35,12 @@ seed = {
   },
   onInsertUser: function (err, user) {
     if (err) throw err;
+    this.db.close();
 
     console.log(JSON.stringify(user, null, 2));
-
     console.log('database seeded successfully.');
-
-    this.db.close();
   }
-
 };
-
-
 
 _.bindAll(seed, 'onConnection', 'clear', 'onClear', 'insertUser', 'onInsertUser');
 require('../src/initializers/db.js')(null, seed.onConnection);

@@ -1,21 +1,18 @@
-var _ = require('underscore');
+var _ = require('underscore'),
+async = require('async');
 
 function loadStream(req, res, callback) {
-    // req.category = category;
-    callback();
+  // req.category = category;
+  callback();
 }
 
 module.exports = function (server) {
-
-  var _ = require('underscore'),
-    async = require('async'),
-    User = require('../models/user.js');
 
   return {
     index: function (req, res) {
       res.render('stream/index', {
         title: 'Stream',
-        categories: req.user.categories
+        user: req.user
       });
     },
     show: function (req, res) {

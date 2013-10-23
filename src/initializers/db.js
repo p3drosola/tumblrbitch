@@ -16,11 +16,9 @@ module.exports = function (server, callback) {
     console.log('connected to db!');
 
     if (_.isFunction(callback)) {
-      console.log('calling back');
       callback(db);
     }
     if (server) {
-      console.log('setting...');
       server.set('db', db);
     }
   }

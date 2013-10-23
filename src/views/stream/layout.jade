@@ -10,8 +10,10 @@ html
       a.home-link(href='/')
         h1 tumblrbitch
 
-      each category in categories  
-        a(href='/stream/' + category.id)= category.name
+      //- != JSON.stringify(user)
+
+      each stream in user.streams  
+        a(href='/stream/' + stream.slug)= stream.name
         
     .main-stream
       block main
