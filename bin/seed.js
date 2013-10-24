@@ -29,6 +29,11 @@ seed = {
           slug: 'design',
           name: 'Design',
           blogs: ['wedieforbeauty', 'nothingtochance', 'expensivelife', 'neako']
+        },
+        {
+          slug: 'fotography',
+          name: 'Photography',
+          blogs: ['roaring-salad-days', 'useabuse', 'textbookgorgeous', 'sangredeltoro']
         }
       ]
     }, this.onInsertUser);
