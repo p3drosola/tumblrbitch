@@ -11,7 +11,7 @@ a {
 
 .main-nav {
   width: 200px;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100%;
@@ -33,4 +33,8 @@ a {
 
 .main-stream {
   padding: 100px 20px 100px 220px;
+
+  img {
+    max-width: 100%;
+  }
 }
