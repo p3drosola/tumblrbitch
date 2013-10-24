@@ -1,11 +1,10 @@
 module.exports.createServer = function () {
   'use strict';
 
-  var server, express, path, fs;
+  var server, express, path;
 
   express = require('express');
   path = require('path');
-  fs = require('fs');
 
   // configure server
   server = express();
@@ -18,17 +17,7 @@ module.exports.createServer = function () {
   server.set('view engine', 'jade');
   server.set('views', __dirname + '/views');
 
-  // initializers
-  function loadInitializer(name) {
-    console.log('loading initializer:', name);
-    require(__dirname + '/initializers/' + name)(server);
-  }
-
-
-  fs.readdirSync(__dirname + '/initializers').forEach(loadInitializer);
-
-  // load route handlers
-  require('./routes.js')(server);
+  require('./startup.js')(server);
 
   return server;
 };
