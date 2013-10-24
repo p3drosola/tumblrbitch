@@ -12,10 +12,15 @@ module.exports.createServer = function () {
   server.use(express.static(path.resolve(__dirname, '../assets')));
   server.use(express.logger());
 
+  server.use(express.cookieParser());
+  server.use(express.bodyParser());
+  server.use(express.session({secret: 'HODORhodorHODOR'}));
+
   server.engine('jade', require('jade').__express);
 
   server.set('view engine', 'jade');
   server.set('views', __dirname + '/views');
+
 
   require('./startup.js')(server);
 

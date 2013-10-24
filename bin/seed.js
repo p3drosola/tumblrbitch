@@ -15,9 +15,9 @@ seed = {
   },
   insertUser: function () {
     this.db.collection('users').insert({
-      tumblr_id: 1,
-      tumblr_token: 'pu3NDDAaLJtR1EBGG08wkduU2MQDpxiX0PBYm3zrO4VSX51yCw',
-      tumblr_token_secret: 'G17ejZX2wZmNuiGj4rKJHqYo8nQkfSb369paXywE9pD4mHfWvr',
+      username: 'bob',
+      // tumblr_token: 'pu3NDDAaLJtR1EBGG08wkduU2MQDpxiX0PBYm3zrO4VSX51yCw',
+      // tumblr_token_secret: 'G17ejZX2wZmNuiGj4rKJHqYo8nQkfSb369paXywE9pD4mHfWvr',
       name: 'Henry Miller',
       streams: [
         {

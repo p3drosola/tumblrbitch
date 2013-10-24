@@ -5,15 +5,15 @@
  */
 module.exports = function (server) {
   return function (req, res, next) {
+    next();
+    // var tumblr_id = 1; //TODO fixme. load from the session
 
-    var tumblr_id = 1; //TODO fixme. load from the session
-
-    server.get('db').collection('users').findOne({
-      tumblr_id: tumblr_id
-    }, function (err, user) {
-      if (err) throw err;
-      req.user = user;
-      next();
-    });
+    // server.get('db').collection('users').findOne({
+    //   tumblr_id: tumblr_id
+    // }, function (err, user) {
+    //   if (err) throw err;
+    //   req.user = user;
+    //   next();
+    // });
   };
 };
