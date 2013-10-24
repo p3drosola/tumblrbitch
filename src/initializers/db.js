@@ -13,7 +13,7 @@ _ = require('underscore');
 module.exports = function (server, callback) {
   function onConnection(err, db) {
     if (err) throw err;
-    console.log('connected to db!');
+    console.log('Connected to db!');
 
     if (_.isFunction(callback)) {
       callback(db);
@@ -23,6 +23,7 @@ module.exports = function (server, callback) {
     }
   }
 
-  console.log('connecting to database...');
+  console.log('Connecting to database...');
   MongoClient.connect('mongodb://' + config.host + '/' + config.db, onConnection);
+  return 'OK!';
 };
