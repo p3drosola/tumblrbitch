@@ -1,0 +1,27 @@
+extend layout
+block main
+
+  .js-new-stream.top-button +
+
+  p Hey, let's organize the tumblr blogs you follow.
+  ol
+    li Use the [+] button to create a new stream
+      small  (eg: "Mens Fashion", or "Illustration")
+    li Drag blogs around to organize them
+
+  .streams-container
+    .stream(data-name="uncategorized")
+      .stream-name Uncategorized
+      .stream-blogs
+        each blog in tumblr_following
+          .blog= blog.name
+
+
+    each stream in user.streams
+      .stream(data-name=stream.name)
+        .stream-name= stream.name
+        .stream-blogs
+          each blog in stream.blogs
+            .blog= blog
+
+  //- != JSON.stringify(tumblr_following, null, 2)

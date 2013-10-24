@@ -7,14 +7,15 @@ html
 
   body
     nav.main-nav
-      a.home-link(href='/')
+      a.home-link(href='/organize')
         h1 tumblrbitch
 
       //- != JSON.stringify(user)
 
-      each stream in user.streams  
-        a(href='/stream/' + stream.slug)= stream.name
-        
+      each s in user.streams
+        - var active = stream ? (stream.slug === s.slug ? 'active' : '') : '';
+        a(href='/streams/' + s.slug, class=active)= s.name
+
     .main-stream
       block main
 

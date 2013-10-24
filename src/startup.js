@@ -1,6 +1,6 @@
 module.exports = function (server) {
 
-  var _, _s, fs, path, 
+  var _, _s, fs, path,
   controller = {}, middleware = {};
 
   _ = require('underscore');
@@ -32,11 +32,16 @@ module.exports = function (server) {
       actions = [actions];
     }
     console.log(method, ':', url, '->', actions);
-    
+
     // convert middleware names to functions
     actions = _.map(actions, function (action) {
+      var fn;
       if (_.isString(action)) {
-        return server.get('middlewares')[action];
+        fn = server.get('middlewares')[action];
+        if (!fn) {
+          throw new Error('Missing middleware: ' + action);
+        }
+        return fn;
       }
       return action;
     })

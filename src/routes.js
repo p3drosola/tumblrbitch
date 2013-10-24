@@ -1,4 +1,5 @@
 module.exports = [
 	['get', '/', 'streams.index'],
-	['get', '/stream/:slug', 'streams.show']
+  ['get', '/organize', 'streams.organize'],
+	['get', '/streams/:slug', 'streams.show']
 ];

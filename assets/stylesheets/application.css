@@ -60,17 +60,49 @@ a {
   height: 100%;
   box-sizing: border-box;
   padding: 100px 20px;
-  font-size: 14px; }
+  font-size: 14px;
+  border-right: 1px solid #eee; }
   .main-nav a {
     display: block;
     color: #616161;
     padding: 5px; }
+    .main-nav a.active {
+      font-weight: 600;
+      color: black; }
   .main-nav a.home-link {
     color: black;
     text-transform: uppercase;
     margin-bottom: 20px; }
 
 .main-stream {
-  padding: 100px 20px 100px 220px; }
+  padding: 100px 20px 100px 220px;
+  line-height: 1.2em; }
   .main-stream img {
     max-width: 100%; }
+  .main-stream ol {
+    list-style-type: decimal;
+    padding: 1em 0 1em 1.5em; }
+  .main-stream small {
+    font-size: 0.8em; }
+
+.top-button {
+  background: #F0F0F0;
+  position: absolute;
+  top: 0;
+  left: 220px;
+  padding: 10px 30px 15px;
+  font-size: 40px;
+  font-weight: 300; }
+
+.streams-container {
+  padding-top: 30px; }
+  .streams-container .stream {
+    float: left;
+    padding: 0 130px 100px 0; }
+  .streams-container .stream-name {
+    font-color: black;
+    font-size: 20px;
+    line-height: 1.3em; }
+  .streams-container .blog {
+    font-size: 14px;
+    color: #616161; }

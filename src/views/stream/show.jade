@@ -1,6 +1,5 @@
 extend layout
 block main
-    h2= stream.name
 
     each post in stream.posts
       if (post.type === 'photo')

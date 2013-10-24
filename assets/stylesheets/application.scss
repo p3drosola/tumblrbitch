@@ -17,12 +17,16 @@ a {
   height: 100%;
   box-sizing: border-box;
   padding: 100px 20px;
-
   font-size: 14px;
+  border-right: 1px solid #eee;
   a {
     display: block;
     color: #616161;
     padding: 5px;
+    &.active {
+      font-weight: 600;
+      color: black;
+    }
   }
   a.home-link {
     color: black;
@@ -33,8 +37,50 @@ a {
 
 .main-stream {
   padding: 100px 20px 100px 220px;
+  line-height: 1.2em;
 
   img {
     max-width: 100%;
   }
+
+  ol {
+    list-style-type: decimal;
+    padding: 1em 0 1em 1.5em;
+  }
+
+  small {
+    font-size: 0.8em;
+  }
 }
+
+.top-button {
+  background: #F0F0F0;
+  position: absolute;
+  top: 0;
+  left: 220px;
+  padding: 10px 30px 15px;
+  font-size: 40px;
+  font-weight: 300;
+}
+
+.streams-container {
+  padding-top: 30px;
+
+  .stream {
+    float: left;
+    padding: 0 130px 100px 0;
+  }
+
+  .stream-name {
+    font-color: black;
+    font-size: 20px;
+    line-height: 1.3em;
+  }
+  .blog {
+    font-size: 14px;
+    color: #616161;
+
+  }
+}
+
+
