@@ -10,7 +10,9 @@ module.exports = function (servear) {
       function (err, data) {
         if (err) throw err;
         var posts = _.flatten(_.pluck(data, 'posts'));
-        posts = _.sortBy(posts, 'timestamp');
+        posts = _.sortBy(posts, function (post) {
+          return - Number(post.timestamp);
+        });
        	req.stream.posts = posts;
         next();
       });
