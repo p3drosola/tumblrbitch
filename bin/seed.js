@@ -28,7 +28,7 @@ seed = {
         {
           slug: 'design',
           name: 'Design',
-          blogs: ['wedieforbeauty', 'sangredeltoro']
+          blogs: ['wedieforbeauty', 'nothingtochance', 'expensivelife', 'neako']
         }
       ]
     }, this.onInsertUser);
