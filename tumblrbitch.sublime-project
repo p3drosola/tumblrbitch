@@ -1,0 +1,10 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "/Users/ped/dev/tumblrbitch",
+			"folder_exclude_patterns": [".sass-cache", "node_modules"]
+		}
+	]
+}
