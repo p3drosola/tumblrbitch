@@ -9,7 +9,9 @@ module.exports = function (servear) {
     async.map(req.stream.blogs, req.tumblr.posts.bind(req.tumblr),
       function (err, data) {
         if (err) throw err;
-        req.stream.posts = _.flatten(_.pluck(data, 'posts'));
+        var posts = _.flatten(_.pluck(data, 'posts'));
+        posts = _.sortBy(posts, 'timestamp');
+       	req.stream.posts = posts;
         next();
       });
   };
