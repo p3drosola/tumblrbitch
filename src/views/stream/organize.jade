@@ -3,25 +3,35 @@ block main
 
   .js-new-stream.top-button +
 
-  p Hey, let's organize the tumblr blogs you follow.
+  p Hey, #{user.username} let's organize the tumblr blogs you follow.
   ol
     li Use the [+] button to create a new stream
       small  (eg: "Mens Fashion", or "Illustration")
     li Drag blogs around to organize them
 
   .streams-container
-    .stream(data-name="uncategorized")
+    .stream(data-name="")
       .stream-name Uncategorized
       .stream-blogs
         each blog in tumblr_following
-          .blog= blog.name
+          .blog(data-name=blog.name)= blog.name
 
 
     each stream in user.streams
-      .stream(data-name=stream.name)
-        .stream-name= stream.name
+      .stream
+        input.stream-name(value=stream.name)
         .stream-blogs
           each blog in stream.blogs
-            .blog= blog
+            .blog(data-name=blog)= blog
+    .cf
 
   //- != JSON.stringify(tumblr_following, null, 2)
+
+
+  form(action='/streams', method='POST')
+    button.js-save(type='submit') Save
+
+  script(src="/javascripts/underscore.js")
+  script(src="/javascripts/jquery.js")
+  script(src="/javascripts/jquery-ui.custom.js")
+  script(src="/javascripts/organize.js")

@@ -1,3 +1,6 @@
+var _ = require('underscore'),
+_s = require('underscore.string');
+
 module.exports = function (server) {
   var controller = {};
 
@@ -33,6 +36,20 @@ module.exports = function (server) {
       user: req.user,
       stream: req.stream
     });
+  }];
+
+  controller.update = ['ensureLogin', function (req, res) {
+    var streams = JSON.parse(req.body.streams);
+    _.each(streams, function (stream) {
+      stream.slug = _s.dasherize(stream.name);
+    });
+    console.log('setting streams', streams);
+    server.get('db').collection('users').update({username: req.user.username}, { $set: {
+      streams: streams
+    }}, function (err) {
+      if (err) throw err;
+      res.redirect('/organize');
+    })
   }];
 
   return controller;

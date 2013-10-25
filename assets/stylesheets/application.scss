@@ -1,4 +1,5 @@
 @import "reset";
+@import "clearfix";
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
@@ -75,11 +76,18 @@ a {
     font-color: black;
     font-size: 20px;
     line-height: 1.3em;
+    border: none;
+  }
+  .stream-blogs {
+    min-height: 100px;
+    &.can-recieve {
+      border: 1px dashed #616161;
+    }
   }
   .blog {
     font-size: 14px;
     color: #616161;
-
+    cursor: move;
   }
 }
 
