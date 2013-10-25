@@ -7,24 +7,23 @@ $(function () {
     organize.buildSortable();
   };
 
-   organize.onClickNewStream = function () {
+  organize.onClickNewStream = function () {
     var name = prompt('Choose a name for the new stream');
     if (!name || !name.length) {
       return;
     }
     $(".stream-blogs").sortable('destroy');
-    $('.streams-container').append(
+    $('.streams-container .stream').first().after(
       "<div class='stream'>" +
         "<input type='text' class='stream-name' value='" + name + "'>" +
           "<div class='stream-blogs'>" +
-            // "<div class='placeholder'>drop blogs here</div>" +
           "</div>" +
         "</div>" +
       "</div>").find('input').last().focus();
     organize.buildSortable();
-   };
+  };
 
-   organize.buildSortable = function () {
+  organize.buildSortable = function () {
     $(".stream-blogs").disableSelection().sortable({
       connectWith: '.stream-blogs',
       activate: function (event, ui) {
@@ -34,9 +33,9 @@ $(function () {
         $('.stream-blogs').removeClass('can-recieve');
       }
     });
-   };
+  };
 
-   organize.serialize = function () {
+  organize.serialize = function () {
     var streams = [];
     $(".stream").each(function () {
       var stream = {};
@@ -49,13 +48,13 @@ $(function () {
       streams.push(stream);
     });
     return streams;
-   };
+  };
 
-   organize.onSubmit = function () {
+  organize.onSubmit = function () {
     var data = organize.serialize();
     $('form').append("<input type='hidden' name='streams' value='" + JSON.stringify(data) + "'>");
     return true;
-   };
+  };
 
   return organize.initalize;
 

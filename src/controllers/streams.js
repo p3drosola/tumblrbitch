@@ -18,7 +18,9 @@ module.exports = function (server) {
    * Presents the index page
    */
   controller.organize = ['ensureLogin', 'tumblr', 'loadTumblrFollowing', function (req, res) {
-    var uncategorized_blogs;
+    var categorized_blogs = _.flatten(_.pluck(req.user.streams, 'blogs')),
+    uncategorized_blogs = _.difference(_.pluck(req.tumblr_following, 'name'), categorized_blogs);
+
     res.render('stream/organize', {
       title: 'Yo!',
       user: req.user,

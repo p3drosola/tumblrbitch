@@ -9,12 +9,14 @@ block main
       small  (eg: "Mens Fashion", or "Illustration")
     li Drag blogs around to organize them
 
+
   .streams-container
     .stream(data-name="")
-      .stream-name Uncategorized
+      .stream-name Uncategorized (#{uncategorized_blogs.length})
+
       .stream-blogs
-        each blog in tumblr_following
-          .blog(data-name=blog.name)= blog.name
+        each blog in uncategorized_blogs
+          .blog(data-name=blog)= blog
 
 
     each stream in user.streams
