@@ -39,7 +39,9 @@ module.exports = function (server) {
       if (_.isString(action)) {
         fn = server.get('middlewares')[action];
         if (!fn) {
-          throw new Error('Missing middleware: ' + action);
+          console.log('Missing middleware: ' + action + '. avaliable: ' + _.keys(server.get('middlewares')).join(','))
+          throw new Error('Missing middleware');
+
         }
         return fn;
       }

@@ -2,7 +2,7 @@ module.exports = function (server) {
   var controller = {};
 
 
-  controller.index = ['loadUser', 'tumblr', 'loadTumblrUser', function (req, res) {
+  controller.index = ['ensureLogin', 'tumblr', 'loadTumblrUser', function (req, res) {
     var first_stream = req.user.streams[0];
     if (first_stream) {
       res.redirect('/streams/' + first_stream.slug);
@@ -14,7 +14,7 @@ module.exports = function (server) {
   /*
    * Presents the index page
    */
-  controller.organize = ['loadUser', 'tumblr', 'loadTumblrFollowing', function (req, res) {
+  controller.organize = ['ensureLogin', 'tumblr', 'loadTumblrFollowing', function (req, res) {
     var uncategorized_blogs;
     res.render('stream/organize', {
       title: 'Yo!',
@@ -27,13 +27,12 @@ module.exports = function (server) {
   /*
    * Loads & displays the specified stream
    */
-  controller.show = ['loadUser', 'tumblr', 'loadStream', function (req, res) {
+  controller.show = ['ensureLogin', 'tumblr', 'loadStream', function (req, res) {
     res.render('stream/show', {
       title: 'Stream',
       user: req.user,
       stream: req.stream
     });
-
   }];
 
   return controller;
