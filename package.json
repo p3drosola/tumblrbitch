@@ -12,8 +12,8 @@
     "url": "git://github.com/p3drosola/tumblrbitch.git"
   },
   "engines": {
-    "node": "0.8.x",
-    "npm": "1.2.x"
+    "node": "0.10.20",
+    "npm": "1.2.32"
   },
   "readmeFilename": "README.md",
   "gitHead": "d58cf7ad4d656a21d2b3df2c1683e7ad8e8122ab",
