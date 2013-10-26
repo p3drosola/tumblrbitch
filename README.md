@@ -26,3 +26,4 @@ The app is prepared to be deployed to heroku. You'll need the mongolab addon. An
 
     PORT: defaults to 3000
     SESSION_SECRET: random key used in session encryption
+    URL: defaults to `http://localhost:3000` used for the oauth callback url
