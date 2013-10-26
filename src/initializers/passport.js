@@ -20,7 +20,7 @@ module.exports = function (server) {
             tumblr_token: token,
             tumblr_token_secret: token_secret,
             streams: []
-          }
+          };
           server.get('db').collection('users').insert(user, function () {
             done(null, user);
           });
