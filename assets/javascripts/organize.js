@@ -3,7 +3,7 @@ $(function () {
 
   organize.initalize = function () {
     $('.js-new-stream').on('click', organize.onClickNewStream);
-    $('form').on('submit', organize.onSubmit);
+    $('.js-save').on('click', organize.onClickSave);
     organize.buildSortable();
   };
 
@@ -51,10 +51,12 @@ $(function () {
     return streams;
   };
 
-  organize.onSubmit = function () {
+  organize.onClickSave = function () {
+    $(this).text('Saving...').removeClass('primary');
     var data = organize.serialize();
-    $('form').append("<input type='hidden' name='streams' value='" + JSON.stringify(data) + "'>");
-    return true;
+
+    $('form').append("<input type='hidden' name='streams' value='" +
+       JSON.stringify(data) + "'>").submit();
   };
 
   return organize.initalize;

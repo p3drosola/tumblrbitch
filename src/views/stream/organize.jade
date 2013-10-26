@@ -5,14 +5,17 @@ block head
 
 
 block main
-
-  .js-new-stream.top-button +
+  
+  .top-buttons
+    .js-new-stream.top-button +
+    .js-save.top-button.primary Save
 
   p Hey, #{user.username} let's organize the tumblr blogs you follow.
   ol
     li Use the [+] button to create a new stream
       small  (eg: "Mens Fashion", or "Illustration")
     li Drag blogs around to organize them
+    li Click "Save" once you're done
 
 
   .streams-container
@@ -32,8 +35,4 @@ block main
             .blog(data-name=blog)= blog
     .cf
 
-  //- != JSON.stringify(tumblr_following, null, 2)
-
-
   form(action='/streams', method='POST')
-    button.js-save(type='submit') Save
