@@ -1,10 +1,14 @@
 extend layout
+block head
+  script(src="/javascripts/stream-show.js")
+
 block main
 
     each post in stream.posts
       if (post.type === 'photo')
         each photo in post.photos
           img(src=photo.alt_sizes[0].url)
+
             
     //- code
     //-   pre= JSON.stringify(stream.posts, null, 2)
