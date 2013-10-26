@@ -4,7 +4,7 @@ module.exports = function (server) {
 
     var blogs = [];
 
-    function load (offset) {
+    function load(offset) {
       req.tumblr.following({limit: 20, offset: offset}, function (err, data) {
         if (err) throw err;
 

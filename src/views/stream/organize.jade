@@ -1,4 +1,9 @@
 extend layout
+block head
+  script(src="/javascripts/jquery-ui.custom.js")
+  script(src="/javascripts/organize.js")
+
+
 block main
 
   .js-new-stream.top-button +
@@ -12,7 +17,7 @@ block main
 
   .streams-container
     .stream(data-name="")
-      .stream-name Uncategorized (#{uncategorized_blogs.length})
+      .stream-name Uncategorized
 
       .stream-blogs
         each blog in uncategorized_blogs
@@ -32,8 +37,3 @@ block main
 
   form(action='/streams', method='POST')
     button.js-save(type='submit') Save
-
-  script(src="/javascripts/underscore.js")
-  script(src="/javascripts/jquery.js")
-  script(src="/javascripts/jquery-ui.custom.js")
-  script(src="/javascripts/organize.js")

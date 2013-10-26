@@ -46,12 +46,13 @@ module.exports = function (server) {
       stream.slug = _s.dasherize(stream.name);
     });
     console.log('setting streams', streams);
+    req.flash('info', 'Saved streams!');
     server.get('db').collection('users').update({username: req.user.username}, { $set: {
       streams: streams
     }}, function (err) {
       if (err) throw err;
       res.redirect('/organize');
-    })
+    });
   }];
 
   return controller;

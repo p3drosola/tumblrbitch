@@ -124,17 +124,30 @@ a {
   padding-top: 30px; }
   .streams-container .stream {
     float: left;
-    padding: 0 130px 100px 0; }
+    padding: 0 64px 64px 0;
+    line-height: 1.7em; }
   .streams-container .stream-name {
     font-color: black;
     font-size: 20px;
-    line-height: 1.3em;
     border: none; }
   .streams-container .stream-blogs {
-    min-height: 100px; }
+    min-height: 50; }
     .streams-container .stream-blogs.can-recieve {
       border: 1px dashed #616161; }
   .streams-container .blog {
     font-size: 14px;
     color: #616161;
     cursor: move; }
+
+.messages {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden; }
+
+.messages-info .message {
+  background: #21B3E4;
+  color: white;
+  padding: 20px 200px; }

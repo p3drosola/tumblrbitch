@@ -21,7 +21,6 @@ module.exports.createServer = function () {
   server.set('view engine', 'jade');
   server.set('views', __dirname + '/views');
 
-
   require('./startup.js')(server);
 
   return server;

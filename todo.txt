@@ -1,0 +1,5 @@
+#### Todo
+
+- add the blog to category
+- browse uncatergorized
+- remove category (carry blogs to uncategorized)
