@@ -15,27 +15,59 @@ seed = {
   },
   insertUser: function () {
     this.db.collection('users').insert({
-      username: 'bob',
-      tumblr_token: 'pu3NDDAaLJtR1EBGG08wkduU2MQDpxiX0PBYm3zrO4VSX51yCw',
-      tumblr_token_secret: 'G17ejZX2wZmNuiGj4rKJHqYo8nQkfSb369paXywE9pD4mHfWvr',
-      name: 'Henry Miller',
-      streams: [
+      "streams" : [
         {
-          slug: 'mens-fashion',
-          name: 'Mens Fashion',
-          blogs: ['yourstyle-men', 'his-vogue-style', 'styleguy', 'fuckyeahfashionguys']
+          "name" : "Reading",
+          "blogs" : [
+            "jkottke"
+          ],
+          "slug" : "-reading"
         },
         {
-          slug: 'design',
-          name: 'Design',
-          blogs: ['wedieforbeauty', 'nothingtochance', 'expensivelife', 'neako']
+          "name" : "Photography",
+          "blogs" : [
+            "sangredeltoro",
+            "crazyaboutass",
+            "muntsaclusellas"
+          ],
+          "slug" : "-photography"
         },
         {
-          slug: 'fotography',
-          name: 'Photography',
-          blogs: ['roaring-salad-days', 'useabuse', 'textbookgorgeous', 'sangredeltoro']
+          "name" : "Design",
+          "blogs" : [
+            "mrdiv",
+            "howimadethis",
+            "wedieforbeauty",
+            "futuristicretrofuturism"
+          ],
+          "slug" : "-design"
+        },
+        {
+          "name" : "Funny",
+          "blogs" : [
+            "oatmeal",
+            "fuckyeahragetoons",
+            "whenyouliveinbarcelona",
+            "shitmystudentswrite"
+          ],
+          "slug" : "-funny"
+        },
+        {
+          "name" : "Mens Fashion",
+          "blogs" : [
+            "digital-wardrobe",
+            "fuckyeahfashionguys",
+            "yourstyle-men",
+            "textbookgorgeous",
+            "styleguy",
+            "his-vogue-style"
+          ],
+          "slug" : "-mens-fashion"
         }
-      ]
+      ],
+      "tumblr_token" : "vFumH1nouAxoYdgKxWJIybSQ8JpwJOvaDWFA3DgH80MHcRjR1c",
+      "tumblr_token_secret" : "oCVoTkOpmYeRFWf685lZTFb4pkoKcxwNp5u5inTHEaU4zQdLce",
+      "username" : "p3d"
     }, this.onInsertUser);
   },
   onInsertUser: function (err, user) {
