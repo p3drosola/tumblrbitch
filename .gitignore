@@ -1,5 +1,4 @@
 /config.yml
 /node_modules
-/Gemfile.lock
 *.swp
 *.sublime-workspace
