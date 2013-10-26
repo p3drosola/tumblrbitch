@@ -41,6 +41,7 @@ $(function () {
       var stream = {};
       if ($(this).find('.stream-name').is('input')) {
         stream.name = $(this).find('.stream-name').val();
+        if (!stream.name.length) return;
       } else {
         return; // uncategoriezed
       }

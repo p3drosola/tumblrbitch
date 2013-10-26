@@ -131,7 +131,7 @@ a {
     font-size: 20px;
     border: none; }
   .streams-container .stream-blogs {
-    min-height: 50; }
+    min-height: 50px; }
     .streams-container .stream-blogs.can-recieve {
       border: 1px dashed #616161; }
   .streams-container .blog {
