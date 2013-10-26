@@ -20,3 +20,9 @@ run `node tumblrbitch`
 ### Deploying
 
 The app is prepared to be deployed to heroku. You'll need the mongolab addon. And the same environment variables as above.
+
+
+### Optional ENV variables
+
+    PORT: defaults to 3000
+    SESSION_SECRET: random key used in session encryption

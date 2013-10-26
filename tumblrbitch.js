@@ -1,5 +1,5 @@
-var port = 3000;
-var server = require('./src/server').createServer();
+var port = process.env.PORT || 5000,
+server = require('./src/server').createServer();
 server.listen(port);
 
 console.log('\n>> Startup completed!')

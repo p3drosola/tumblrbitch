@@ -14,7 +14,9 @@ module.exports.createServer = function () {
 
   server.use(express.cookieParser());
   server.use(express.bodyParser());
-  server.use(express.session({secret: 'HODORhodorHODOR'}));
+  server.use(express.session({
+    secret: (process.env.SESSION_SECRET || 'HODOR-HODOR-HODOR')
+  }));
 
   server.engine('jade', require('jade').__express);
 
