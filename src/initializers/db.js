@@ -1,8 +1,4 @@
-var config = {
-  host: 'localhost',
-  db: 'tumblrbitch'
-},
-MongoClient = require('mongodb').MongoClient,
+var MongoClient = require('mongodb').MongoClient,
 _ = require('underscore');
 
 
@@ -11,6 +7,7 @@ _ = require('underscore');
  * @param  {Express|Function} callback
  */
 module.exports = function (server, callback) {
+
   function onConnection(err, db) {
     if (err) throw err;
     console.log('Connected to db!');
@@ -23,7 +20,10 @@ module.exports = function (server, callback) {
     }
   }
 
-  console.log('Connecting to database...');
-  MongoClient.connect('mongodb://' + config.host + '/' + config.db, onConnection);
+  var db_url = process.env.MONGOLAB_URI ||
+    'mongodb://localhost/tumblrbitch';
+
+  console.log('Connecting to database: ', db_url);
+  MongoClient.connect(db_url, onConnection);
   return 'OK!';
 };

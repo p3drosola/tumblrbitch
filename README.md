@@ -1,16 +1,22 @@
-### Requirements
-- mongodb server
-
-
 ### Getting started
 
-create `config.yml` and set your outh credentials
+#### Tumblr API keys
+To begin, you'll need to [register a tumblr application](http://www.tumblr.com/oauth/apps).
 
-    consumer_key: Dasdasdasdasdp983f8uqner8fnqer8f
-    consumer_secret: 9j8g97hqe87fhq8er7hg87erhg87hqer87hgqerg
-    token: 8723h834h87fh3487fh3874fh783f4iu4h38uf
-    token_secret: we87fhw87edh873h48h34f34f
+Copy your Oauth consumer key, and consumer secret, and export them as environment variables.
 
-start a mongodb server: `mongod`
+    export CONSUMER_KEY=Dasdasdasdasdp983f8uqner8fnqer8f
+    export CONSUMER_SECRET=9j8g97hqe87fhq8er7hg87erhg87hqer87hgqerg
 
-run `node application.js`
+#### Database
+
+The app uses a Mongodb database for persistence. So you can start the mongodb server with `mongod`
+
+#### Running
+
+run `node tumblrbitch`
+
+
+### Deploying
+
+The app is prepared to be deployed to heroku. You'll need the mongolab addon. And the same environment variables as above.
