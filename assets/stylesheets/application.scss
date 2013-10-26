@@ -117,3 +117,39 @@ a {
   padding: 20px 200px;
 }
 
+
+.blog-preview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, .5);
+  iframe {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 300px;
+  }
+}
+.blog-preview--text {
+  padding: 50px;
+  color: black;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 1.5em;
+
+  small {
+    font-size: 0.7em;
+  }
+}
+.blog-preview--name {
+  font-weight: 600;
+}
+
+body.is-previewing {
+  .main-nav, .main-stream {
+    opacity: 0.2;
+  }
+}

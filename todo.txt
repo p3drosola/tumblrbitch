@@ -1,5 +1,9 @@
 #### Todo
 
-- add the blog to category
+- share lists
+- drag photos to category moves blog
+
+- other post types
 - browse uncatergorized
-- remove category (carry blogs to uncategorized)
+- interact with posts
+- favicon

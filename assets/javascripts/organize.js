@@ -4,6 +4,8 @@ $(function () {
   organize.initalize = function () {
     $('.js-new-stream').on('click', organize.onClickNewStream);
     $('.js-save').on('click', organize.onClickSave);
+    $(document).on('click', '.blog', organize.previewBlog);
+    $(document).on('click', '.blog-preview', organize.closeBlogPreview);
     organize.buildSortable();
   };
 
@@ -57,6 +59,24 @@ $(function () {
 
     $('form').append("<input type='hidden' name='streams' value='" +
        JSON.stringify(data) + "'>").submit();
+  };
+
+  organize.previewBlog = function () {
+    var name = $(this).attr('data-name'),
+    url = 'http://' + name + '.tumblr.com/mobile';
+    $('body').addClass('is-previewing').append(
+      '<div class="blog-preview">' +
+        '<div class="blog-preview--text">' +
+          '<p>Previewing blog: <span class="blog-preview--name">' + name + '</span></p>' +
+          '<small>Click anywhere to close preview<small>' +
+        '</div>' +
+        '<iframe src="' + url + '"/>' +
+      '</div>');
+  };
+
+  organize.closeBlogPreview = function () {
+    $(".blog-preview").remove();
+    $('body').removeClass('is-previewing');
   };
 
   return organize.initalize;
