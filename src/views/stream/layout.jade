@@ -10,13 +10,12 @@ html
     script(src="/javascripts/interface.js")
     block head
   body
-
-    each messages, type in flash_messages
-      .messages(class="messages-" + type)
-        each message in messages
-          .message= message
+    if (flash_messages)
+      each messages, type in flash_messages
+        .messages(class="messages-" + type)
+          each message in messages
+            .message= message
       
-
     nav.main-nav
       a.home-link(href='/organize')
         h1 tumblrbitch
