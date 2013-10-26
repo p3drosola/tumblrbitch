@@ -42,6 +42,7 @@ a {
 
   img {
     max-width: 100%;
+    margin: -4px 1px 0 0;
   }
 
   ol {
@@ -151,5 +152,48 @@ a {
 body.is-previewing {
   .main-nav, .main-stream {
     opacity: 0.2;
+  }
+}
+
+
+.show-image-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  // -webkit-filter: blur(4px);
+  // -webkit-transform: scale(1.1);
+  background-size: cover;
+  background-position: center center;
+
+}
+.show-image-info {
+  position: fixed;
+  z-index: 11;
+  bottom: 0;
+  left: 0;
+  color: white;
+  padding: 10px;
+  background: rgba(0,0,0, .85);
+  font-weight: 300;
+  line-height: 1.3em;
+
+  a {
+    color: white;
+    border-bottom: 1px solid #353535;
+  }
+}
+.show-image-info--caption {
+  strong {
+    font-weight: 400;
+  }
+  em {
+    font-style: italic;
+  }
+  blockquote {
+    color: #818181;
+    padding: 20px;
   }
 }
