@@ -67,7 +67,8 @@ seed = {
       ],
       "tumblr_token" : "vFumH1nouAxoYdgKxWJIybSQ8JpwJOvaDWFA3DgH80MHcRjR1c",
       "tumblr_token_secret" : "oCVoTkOpmYeRFWf685lZTFb4pkoKcxwNp5u5inTHEaU4zQdLce",
-      "username" : "p3d"
+      "username" : "p3d",
+      "created_at": Math.round(new Date().getTime() / 1000)
     }, this.onInsertUser);
   },
   onInsertUser: function (err, user) {

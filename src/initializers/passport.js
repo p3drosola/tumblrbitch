@@ -19,6 +19,7 @@ module.exports = function (server) {
             username: profile.username,
             tumblr_token: token,
             tumblr_token_secret: token_secret,
+            created_at: Math.round(new Date().getTime() / 1000),
             streams: []
           };
           server.get('db').collection('users').insert(user, function () {
