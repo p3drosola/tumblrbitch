@@ -67,7 +67,8 @@ $(function () {
     $('body').addClass('is-previewing').append(
       '<div class="blog-preview">' +
         '<div class="blog-preview--text">' +
-          '<p>Previewing blog: <span class="blog-preview--name">' + name + '</span></p>' +
+          '<p>Previewing blog: <span class="blog-preview--name"><a href="http://' +
+            name + '.tumblr.com">' + name + '</a></span></p>' +
           '<small>Click anywhere to close preview<small>' +
         '</div>' +
         '<iframe src="' + url + '"/>' +
