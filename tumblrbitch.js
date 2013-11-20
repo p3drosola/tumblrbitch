@@ -1,4 +1,4 @@
-if (process.env.NODE_ENV === 'productiion') {
+if (process.env.NODE_ENV === 'production') {
   console.log('Connecting to newrelic');
   require('newrelic');
 }
