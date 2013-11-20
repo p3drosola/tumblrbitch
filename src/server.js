@@ -9,7 +9,8 @@ module.exports.createServer = function () {
   // configure server
   server = express();
 
-  server.configure('production', function(){
+  server.configure('production', function () {
+    console.log('Connecting to newrelic');
     require('newrelic');
   });
 
