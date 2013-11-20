@@ -9,11 +9,6 @@ module.exports.createServer = function () {
   // configure server
   server = express();
 
-  server.configure('production', function () {
-    console.log('Connecting to newrelic');
-    require('newrelic');
-  });
-
   server.use(express.static(path.resolve(__dirname, '../assets')));
   server.use(express.logger());
 
