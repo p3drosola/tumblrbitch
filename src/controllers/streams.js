@@ -25,7 +25,8 @@ module.exports = function (server) {
       title: 'Yo!',
       user: req.user,
       tumblr_following: req.tumblr_following,
-      uncategorized_blogs: uncategorized_blogs
+      uncategorized_blogs: uncategorized_blogs,
+      body_class: 'stream stream_organize'
     });
   }];
 
@@ -36,7 +37,8 @@ module.exports = function (server) {
     res.render('stream/show', {
       title: 'Stream',
       user: req.user,
-      stream: req.stream
+      stream: req.stream,
+      body_class: 'stream stream_show'
     });
   }];
 
