@@ -9,6 +9,10 @@ module.exports.createServer = function () {
   // configure server
   server = express();
 
+  server.configure('production', function(){
+    require('newrelic');
+  });
+
   server.use(express.static(path.resolve(__dirname, '../assets')));
   server.use(express.logger());
 
