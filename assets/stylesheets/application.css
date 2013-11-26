@@ -232,7 +232,7 @@ body.is-previewing .main-nav, body.is-previewing .main-stream {
   padding: 20px; }
 
 .post {
-  padding: 0 20px; }
+  padding: 0; }
 
 .photo-post {
   text-align: center; }

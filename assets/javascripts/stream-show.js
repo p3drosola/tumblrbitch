@@ -3,19 +3,12 @@ $(function () {
   var stream = {};
 
   stream.initalize = function () {
-    stream.setMaxHeight();
     stream.setMargins();
-    $(window).on('resize', stream.setMaxHeight);
     $(window).on('resize', stream.setMargins);
     $(document).on('click', '.main-stream img', stream.showImage);
     $(document).on('click', '.show-image-bg', stream.hideImage);
   };
 
-  stream.setMaxHeight = _.debounce(function () {
-    $('.main-stream img').css({
-      maxHeight: $(window).height() + 'px'
-    });
-  }, 500);
 
   stream.setMargins = _.debounce(function () {
     var window_height = $(window).height();
